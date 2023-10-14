@@ -4,7 +4,7 @@ import json
 import yfinance as yf
 import matplotlib.pyplot as plt
 
-API_KEY = 'Q5J6DEGT4OSOES6F'
+API_KEY = 'Alpha Vantage API'
 user_accounts = {}
 
 
