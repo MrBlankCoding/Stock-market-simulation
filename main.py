@@ -4,7 +4,7 @@ import json
 import yfinance as yf
 import matplotlib.pyplot as plt
 
-API_KEY = 'Alpha Vantage API'
+API_KEY = 'Q5J6DEGT4OSOES6F'
 user_accounts = {}
 
 
@@ -40,6 +40,16 @@ class User:
         self.password = password
         self.portfolio_manager = PortfolioManager(username, initial_balance)
         user_accounts[username] = self
+        self.save_user_to_file()
+
+    def save_user_to_file(self):
+        user_data = {
+            "username": self.username,
+            "password": self.password,
+            "portfolio_manager": self.portfolio_manager.__dict__,
+        }
+        with open(f'{self.username}_user.json', 'w') as file:
+            json.dump(user_data, file)
 
 
 
@@ -256,7 +266,6 @@ def main_menu(user):
 
 
 if __name__ == "__main__":
-    user_accounts = {}
 
     while True:
         print("\nStock Portfolio Management")
